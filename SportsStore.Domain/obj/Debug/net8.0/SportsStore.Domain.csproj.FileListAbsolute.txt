@@ -1,0 +1,11 @@
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.deps.json
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.dll
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.pdb
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.AssemblyInfoInputs.cache
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.AssemblyInfo.cs
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.csproj.CoreCompileInputs.cache
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.dll
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\refint\SportsStore.Domain.dll
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.pdb
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\ref\SportsStore.Domain.dll
