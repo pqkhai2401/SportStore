@@ -1,0 +1,52 @@
+﻿@using SportsStoreWebApp.Domain.Models;
+@model IEnumerable<Product>
+@{
+	ViewData["Title"] = "Danh sách sản phẩm";
+}
+<h1>Danh sách sản phẩm - @ViewBag.CurrentCategory</h1>
+@if (Model != null && Model.Any())
+{
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				
+				<th>ID</th>
+				<th>Tên</th>
+				<th>Mô tả</th>
+				<th>Giá</th>
+				<th>Danh mục</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var p in Model)
+			{
+				<tr>
+					<td>@p.ProductID</td>
+					<td>@p.Name</td>
+					<td>@p.Description</td>
+					<td>$ @p.Price.ToString("#,##0.0")</td> @* Định dạngtiền tệ *@
+					<td>@p.Category</td>
+					<td>
+						<a asp-controller="Product" asp-action="Details"
+						   asp-route-id="@p.ProductID" class="btn btn-info btn-sm">Chi tiết</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<p>Không có sản phẩm nào để hiển thị.</p>
+}
+<div>
+	<h4>Lọc theo danh mục:</h4>
+	<a asp-controller="Product" asp-action="List" asp-route-category="" class="btn btn-secondary">Tất cả</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Bóng đá" class="btn btn-secondary">Bóng đá</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Tennis" class="btn btn-secondary">Tennis</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Quần áo" class="btn btn-secondary">Quần áo</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Giày dép" class="btn btn-secondary">Giày dép</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Bóng chuyền" class="btn btn-secondary">Bóng chuyền</a>
+	<a asp-controller="Product" asp-action="List" asp-route-category="Cầu lông" class="btn btn-secondary">Cầu lông</a>
+</div>

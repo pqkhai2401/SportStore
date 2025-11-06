@@ -9,3 +9,4 @@ E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\Spo
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\refint\SportsStore.Domain.dll
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.pdb
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\ref\SportsStore.Domain.dll
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.sourcelink.json

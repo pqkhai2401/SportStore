@@ -32,3 +32,4 @@ E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStoreWebApp\bin\Debug\net8.0\Spor
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStoreWebApp\bin\Debug\net8.0\SportsStore.Domain.pdb
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStoreWebApp\obj\Debug\net8.0\SportsStoreWebApp.csproj.AssemblyReference.cache
 E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStoreWebApp\obj\Debug\net8.0\SportsStoreWebApp.csproj.CopyComplete
+E:\Nam_Ba\asp\ThucHanh\SportsStoreWebApp\SportsStoreWebApp\obj\Debug\net8.0\SportsStoreWebApp.sourcelink.json
