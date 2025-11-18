@@ -1,52 +1,100 @@
 ﻿@using SportsStoreWebApp.Domain.Models;
+
 @model IEnumerable<Product>
 @{
 	ViewData["Title"] = "Danh sách sản phẩm";
+	int totalPages = (int)Math.Ceiling((decimal)ViewBag.TotalItems /ViewBag.ItemsPerPage);
+	string currentCategory = ViewBag.CurrentCategory as string ?? "";
+	int currentPage = ViewBag.CurrentPage ?? 1;
+	var categories = (ViewBag.Categories as IEnumerable<string>) ?? Enumerable.Empty<string>();
 }
-<h1>Danh sách sản phẩm - @ViewBag.CurrentCategory</h1>
-@if (Model != null && Model.Any())
+
+<h1 class="text-center my-4">@ViewData["Title"]</h1>
+@if (!string.IsNullOrWhiteSpace(currentCategory))
 {
-	<table class="table table-bordered table-striped">
-		<thead>
-			<tr>
-				
-				<th>ID</th>
-				<th>Tên</th>
-				<th>Mô tả</th>
-				<th>Giá</th>
-				<th>Danh mục</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var p in Model)
+	<h2 class="text-primary text-center mb-3">@currentCategory</h2>
+}
+<div class="row">
+	<!-- Sidebar -->
+	<div class="col-md-3">
+		<h3>Danh mục</h3>
+		<div class="list-group">
+			<a asp-action="List" asp-controller="Product" asp-route-category=""
+			   class="list-group-item list-group-item-action
+				@(string.IsNullOrWhiteSpace(currentCategory) ? "active" : "")">
+				Tất cả sản phẩm
+			</a>
+			@foreach (var category in categories)
 			{
-				<tr>
-					<td>@p.ProductID</td>
-					<td>@p.Name</td>
-					<td>@p.Description</td>
-					<td>$ @p.Price.ToString("#,##0.0")</td> @* Định dạngtiền tệ *@
-					<td>@p.Category</td>
-					<td>
-						<a asp-controller="Product" asp-action="Details"
-						   asp-route-id="@p.ProductID" class="btn btn-info btn-sm">Chi tiết</a>
-					</td>
-				</tr>
+				<a asp-action="List" asp-controller="Product" asp-route-category="@category"
+				   class="list-group-item list-group-item-action
+					@(category == currentCategory ? "active" : "")">
+					@category
+				</a>
 			}
-		</tbody>
-	</table>
-}
-else
-{
-	<p>Không có sản phẩm nào để hiển thị.</p>
-}
-<div>
-	<h4>Lọc theo danh mục:</h4>
-	<a asp-controller="Product" asp-action="List" asp-route-category="" class="btn btn-secondary">Tất cả</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Bóng đá" class="btn btn-secondary">Bóng đá</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Tennis" class="btn btn-secondary">Tennis</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Quần áo" class="btn btn-secondary">Quần áo</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Giày dép" class="btn btn-secondary">Giày dép</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Bóng chuyền" class="btn btn-secondary">Bóng chuyền</a>
-	<a asp-controller="Product" asp-action="List" asp-route-category="Cầu lông" class="btn btn-secondary">Cầu lông</a>
+		</div>
+	</div>
+	<!-- Main content -->
+	<div class="col-md-9">
+		@if (Model?.Any() == true)
+		{
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+				@foreach (var p in Model)
+				{
+					<partial name="_ProductCard" model="p" />
+					
+				}
+			</div>
+			<!-- Pagination -->
+			<nav aria-label="Phân trang" class="mt-4">
+				<ul class="pagination justify-content-center">
+					@for (int i = 1; i <= totalPages; i++)
+					{
+						<li class="page-item @(i == currentPage ? "active" : "")">
+						
+							<a class="page-link"
+							   asp-controller="Product"
+							   asp-action="List"
+							   asp-route-productPage="@i"
+							   asp-route-category="@(string.IsNullOrWhiteSpace(currentCategory) ? null : currentCategory)">
+								@i
+							</a>
+
+						</li>
+
+					}
+				</ul>
+			</nav>
+		}
+		else
+		{
+			<div class="alert alert-warning text-center" role="alert">
+				Không tìm thấy sản phẩm nào trong danh mục này.
+			</div>
+		}		
+	</div>
 </div>
+@section Scripts {
+	<script>
+		Tuần 08 - Models – Controllers – Views(Phần 4: Các Kỹ thuật View nâng cao)
+		// Lấy tất cả các thẻ sản phẩm
+		const productCards = document.querySelectorAll('.product-card');
+		// Lặp qua từng thẻ và thêm event listener
+		productCards.forEach(card => {
+			card.addEventListener('mouseover', function () {
+				this.style.backgroundColor = '#f8f9fa'; // Màu nền nhẹ khi hover
+			});
+			card.addEventListener('mouseout', function () {
+				this.style.backgroundColor = ''; // Quay về mặc định
+			});
+		});
+		// Một ví dụ khác: hiển thị thông báo khi thêm vào giỏ hàng
+		document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+			button.addEventListener('click', function () {
+				// Đây chỉ là ví dụ client-side. Logic thực tế đã nằm ởserver.
+					// alert('Sản phẩm đã được thêm vào giỏ hàng!');
+					// Có thể thêm hiệu ứng UI ở đây mà không cần reload trang.
+		});
+		});
+	</script>
+}

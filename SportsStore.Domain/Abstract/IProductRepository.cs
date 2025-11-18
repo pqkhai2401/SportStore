@@ -11,5 +11,6 @@ namespace SportsStore.Domain.Abstract
 	{
 		// Thuộc tính để lấy tất cả sản phẩm
 		IQueryable<Product> Products { get; }
+		Task SaveProduct(Product product);
 	}
 }
